@@ -49,9 +49,17 @@ input,
 button {
   border: none;
   height: 30px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   margin-right: 5px;
+  height: 35px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 button:hover {
@@ -61,10 +69,12 @@ button:hover {
 
 h1 {
   font-size: 4rem;
+  text-align: center;
 }
 
 h2 {
   font-size: 3rem;
+  text-align: center;
 }
 h3 {
   width: 90vw;
