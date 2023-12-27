@@ -20,7 +20,12 @@ function getFetch() {
     choice = todaysDate;
     document.querySelector("span").textContent =
       "Please select today's date or before";
+  } else if (choice < "1995-06-20") {
+    document.querySelector("span").textContent =
+      "Please select 06/20/1995 or after";
+    choice = "1995-06-20";
   }
+
   const key = "37xtVRoiW2VLjd3aE8UMcan0svzrKxkmlZWSXgDI";
   const url = `https://api.nasa.gov/planetary/apod?api_key=${key}&date=${choice}`;
 
