@@ -32,9 +32,10 @@ header {
   align-items: center;
   margin-top: 20px;
   gap: 10px;
+  width: 300px;
 }
 .logo {
-  width: 100px;
+  width: 60px;
 }
 
 #imageOfDay {
