@@ -13,15 +13,15 @@ let todaysDate =
 document.querySelector("input").value = todaysDate;
 
 function getFetch() {
-  document.querySelector("span").textContent = "";
+  document.getElementById("error").textContent = "";
   let choice = document.querySelector("input").value;
 
   if (choice > todaysDate) {
     choice = todaysDate;
-    document.querySelector("span").textContent =
+    document.getElementById("error").textContent =
       "Please select today's date or before";
   } else if (choice < "1995-06-20") {
-    document.querySelector("span").textContent =
+    document.getElementById("error").textContent =
       "Please select 06/20/1995 or after";
     choice = "1995-06-20";
   }
@@ -37,13 +37,22 @@ function getFetch() {
       console.log(data);
 
       data.media_type == "image"
-        ? (document.getElementById("imageOfDay").src = data.hdurl) &&
+        ? (document.getElementById("imageOfDay").style.display = "block") &&
+          (document.getElementById("imageOfDay").src = data.hdurl) &&
           (document.querySelector("iframe").style.display = "none")
         : (document.querySelector("iframe").style.display = "block") &&
-          (document.querySelector("iframe").src = data.url);
+          (document.querySelector("iframe").src = data.url) &&
+          (document.getElementById("imageOfDay").style.display = "none");
 
       document.querySelector("h2").innerText = data.title;
       document.querySelector("h3").innerText = data.explanation;
+      if (data.copyright) {
+        document.getElementById(
+          "copyright"
+        ).innerText = `Copyright: ${data.copyright}`;
+      } else {
+        document.getElementById("copyright").innerText = "";
+      }
     })
     .catch((err) => {
       console.log(`error ${err}`);
