@@ -45,7 +45,7 @@ function getFetch() {
           (document.getElementById("imageOfDay").style.display = "none");
 
       document.querySelector("h2").innerText = data.title;
-      document.querySelector("h3").innerText = data.explanation;
+      document.querySelector("p").innerText = data.explanation;
       if (data.copyright) {
         document.getElementById(
           "copyright"
